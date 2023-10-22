@@ -31,8 +31,19 @@ const peeps = [
 countScores(peeps); //=> { Pete: 4, Mike: 4, Dexter: 6 }
 ***********************************************************************/
 
-function countScores(people) {
-  // your code here
-}
+// function countScores(people) {
+//   const myObject = { name: [], score: [] };
+//   for (let i = 0; i < people.length; i++) {
+//     for (let name in people[i]) {
+//       if(myObject.name.includes(name)){
+//       myObject.score[i]+=people[i].score
+//       }else {
+//         myObject.name.push(people[i].name);
+//         myObject.score.push(people[i].score);}
+
+//     }
+//   }
+//   return myObject;
+// }
 
 module.exports = countScores;
