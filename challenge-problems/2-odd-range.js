@@ -9,7 +9,14 @@ oddRange(6); // => [ 1, 3, 5 ]
 ******************************************************************************/
 
 function oddRange(end) {
-    // your code here
+  let newArray = [];
+  for (let i = 0; i <= end; i++) {
+    if (i % 2 !== 0) {
+      newArray.push(i);
+    }
+  }
+  return newArray;
 }
 
-module.exports = oddRange
+console.log(oddRange(18));
+//module.exports = oddRange

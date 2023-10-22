@@ -9,12 +9,12 @@ tripler([4, 1, 7]); // => [ 12, 3, 21 ]
 *******************************************************************************/
 
 function tripler(array) {
-    let newArray=[]
-    for (let i=0; i<array.length; i++){
-        newArray.push(array[i]*=3)
-    }
-    return newArray
+  let newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    newArray.push((array[i] *= 3));
+  }
+  return newArray;
 }
-console.log(tripler([1,2,3]))
+console.log(tripler([1, 2, 3,0]));
 
-module.exports = tripler
+module.exports = tripler;
