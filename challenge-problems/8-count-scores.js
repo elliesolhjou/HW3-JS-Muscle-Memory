@@ -43,7 +43,7 @@ function countScores(people) {
       myObject.score[idx] += people[i].score;
     }
   }
-  console.log(myObject);
+  //console.log(myObject);
   var obj = {};
   //for (var name in myObject) {
   for (let i = 0; i < myObject.name.length; i++) {

@@ -20,14 +20,16 @@
 console.log("it is working")
 
 function isPrime(number) {
-  for (let i=2; i<=number; i++){
-    if (i===number){
-      return true;
-    } else if(!number%i===0){
-      return true;
-    } else{return false}
+  for (let i=2; i<number; i++){
+    // if (i===number){
+    //   return true;
+    // } else 
+    if(number%i===0){
+      return false;
+    } else{return true}
   } 
 }
+console.log(isPrime(15))
 
 // /***********************************************************************
 // Using the `isPrime` function you made, write a function `firstNPrimes(n)`
