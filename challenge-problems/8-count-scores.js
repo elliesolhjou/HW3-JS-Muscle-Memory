@@ -31,19 +31,37 @@ const peeps = [
 countScores(peeps); //=> { Pete: 4, Mike: 4, Dexter: 6 }
 ***********************************************************************/
 
-// function countScores(people) {
-//   const myObject = { name: [], score: [] };
-//   for (let i = 0; i < people.length; i++) {
-//     for (let name in people[i]) {
-//       if(myObject.name.includes(name)){
-//       myObject.score[i]+=people[i].score
-//       }else {
-//         myObject.name.push(people[i].name);
-//         myObject.score.push(people[i].score);}
+function countScores(people) {
+  const myObject = { name: [], score: [] };
+  for (let i = 0; i < people.length; i++) {
+    if (!myObject.name.includes(people[i].name)) {
+      myObject.name.push(people[i].name);
+      myObject.score.push(people[i].score);
+      //console.log(myObject)
+    } else {
+      let idx = myObject.name.indexOf(people[i].name);
+      myObject.score[idx] += people[i].score;
+    }
+  }
+  console.log(myObject);
+  var obj = {};
+  //for (var name in myObject) {
+  for (let i = 0; i < myObject.name.length; i++) {
+    obj[myObject.name[i]] = myObject.score[i];
+  }
+  //}
+  return obj;
+}
 
-//     }
-//   }
-//   return myObject;
-// }
+const peeps = [
+  { name: "Pete", score: 2 },
+  { name: "Dexter", score: 2 },
+  { name: "Mike", score: 2 },
+  { name: "Dexter", score: 2 },
+  { name: "Mike", score: 2 },
+  { name: "Pete", score: 2 },
+  { name: "Dexter", score: 2 },
+];
+console.log(countScores(peeps));
 
-module.exports = countScores;
+//module.exports = countScores;
