@@ -5,6 +5,8 @@
 // previous to solve.
 // ***********************************************************************/
 
+const { first } = require("lodash");
+
 // /***********************************************************************
 // Write a function `isPrime(number)` that returns a boolean indicating if
 // `number` is prime or not. Assume `number` is a positive integer.
@@ -17,20 +19,23 @@
 // isPrime(303212); // => false
 // ***********************************************************************/
 
-console.log("it is working")
+console.log("it is working");
 
 function isPrime(number) {
-  for (let i=2; i<number; i++){
-    // if (i===number){
-    //   return true;
-    // } else 
-    if(number%i===0){
-      return false;
-    } else{return true}
-  } 
+  if (number === 1) {
+    return false;
+  } else if (number === 2) {
+    return true;
+  } else {
+    for (let i = 2; i < number; i++) {
+      if (number % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
 }
-console.log(isPrime(15))
-
+console.log(isPrime(27));
 // /***********************************************************************
 // Using the `isPrime` function you made, write a function `firstNPrimes(n)`
 // that returns an array of the first `n` prime numbers.
@@ -43,14 +48,17 @@ console.log(isPrime(15))
 // ***********************************************************************/
 
 function firstNPrimes(n) {
-  let myArray=[];
-  myArray.length=n;
-  for (let i=0; i<=n-1 ;i++)
-    if(isPrime(i)){
-      myArray.push(i)
+  let myArray = [];
+  let counter = 1;
+  while (myArray.length < n) {
+    if (isPrime(counter)) {
+      myArray.push(counter);
     }
+    counter++;
+  }
+  return myArray;
 }
-console.log(firstNPrimes(5))
+console.log(firstNPrimes(7));
 
 // /***********************************************************************
 //  Using `firstNPrimes`, write a function `sumOfNPrimes(n)` that returns
@@ -62,8 +70,10 @@ console.log(firstNPrimes(5))
 // sumOfNPrimes(1); // => 2
 // sumOfNPrimes(4); // => 17
 // ***********************************************************************/
-// function sumOfNPrimes(n) {
-//   // your code here
-// }
-
+function sumOfNPrimes(n) {
+  let myPrimes = firstNPrimes(n);
+  let mySum = myPrimes.reduce((acc, prime) => acc + prime, 0);
+  return mySum;
+}
+console.log(sumOfNPrimes(4));
 // module.exports = { firstNPrimes, isPrime, sumOfNPrimes };
